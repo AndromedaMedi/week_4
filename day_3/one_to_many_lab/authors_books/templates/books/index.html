@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Books</h2>
+    {% for book in books %}
+        <div class="book">
+            <div class="content">
+                <h3> {{ book.title }}</h3>
+                <h4>Author:</h4>
+                <p>{{ book.author.name }}</p>
+                <h4>Release Year:</h4>
+                <p> {{ book.year }}</p>
+                <div class="button">
+                <form class="submit" action="/delete-book/{{loop.index0}}" method="post">
+                    <p>
+                    <input type="submit" value="Delete Book">
+                    </p>
+                </form>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}
