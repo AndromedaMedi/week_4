@@ -25,8 +25,8 @@ def select(id):
     sql = "SELECT * FROM authors WHERE id = %s"
     values = [id]
     result = run_sql(sql, values[0])
-    if result is not None:
-        author = Author(result["name"], result[id])
+    if result:
+        author = Author(result[0]["name"], result[0][id])
     return author
 
 def delete_all():

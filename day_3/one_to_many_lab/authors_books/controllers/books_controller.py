@@ -7,6 +7,7 @@ book_blueprint = Blueprint("books", __name__)
 @book_blueprint.route("/books")
 def books():
     all_books = book_repository.select_all()
+
     return render_template("books/index.html", books=all_books)
 
 @book_blueprint.route('/books/<book_id>', methods=['POST'])
