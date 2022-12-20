@@ -15,10 +15,8 @@ def save(task):
 
 def select_all():
     tasks = []
-
     sql = "SELECT * FROM tasks"
     results = run_sql(sql)
-
     for row in results:
         user = user_repository.select(row['user_id'])
         task = Task(row['description'], user, row['duration'], row['completed'], row['id'] )
